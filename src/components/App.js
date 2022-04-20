@@ -3,9 +3,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import SearchBar from "./SearchBar/SearchBar.js"
 
+
 function App() {
   const [Comments, setComments] = useState([]);
   const [video, setVideo] = useState({});
+  const [videoList, setVideoList] = useState('');
+
+
+
   video.id = "rO9YiNfuBfA";
 
   const getComments = async () => {
@@ -20,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <SearchBar />
+      <SearchBar searchBar = {SearchBar}/>
       <button onClick={getComments}>Click for Comments</button>
       <div className="videoplayer">Video</div>
       <iframe
