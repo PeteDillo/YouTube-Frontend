@@ -1,17 +1,17 @@
 import "./App.css";
 import React, { useState } from "react";
 import axios from "axios";
+import SearchBar from "./SearchBar/SearchBar.js"
 
 function App() {
   const [Comments, setComments] = useState([]);
   const [video, setVideo] = useState({});
-  video.id= 'ZJPju9tOJ_I'
-  
+  video.id = "rO9YiNfuBfA";
+
   const getComments = async () => {
     try {
       let response = await axios.get("http://localhost:3007/api/comments");
-      console.log(response.data);
-
+      console.log(process.env.REACT_APP_API_KEY);
       setComments(response.data);
     } catch (error) {
       console.log(error);
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <SearchBar />
       <button onClick={getComments}>Click for Comments</button>
       <div className="videoplayer">Video</div>
       <iframe
