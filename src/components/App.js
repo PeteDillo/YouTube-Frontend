@@ -1,8 +1,9 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SearchBar from "./SearchBar/SearchBar.js";
 import VideoPlayer from "./VideoPlayer/VideoPlayer";
+import VideoCard from "./VideoCard/VideoCard";
 
 function App() {
   const [Comments, setComments] = useState([]);
@@ -42,7 +43,7 @@ function App() {
       publishTime: "2020-10-29T12:00:27Z",
     },
   });
-  const [videoList, setVideoList] = useState("");
+  const [videoList, setVideoList] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
   video.id = "NQR_cPgk1Hw";
@@ -60,6 +61,7 @@ function App() {
     <div className="App">
       <SearchBar setSearchResults={setSearchResults} />
       <VideoPlayer video={video} />
+      <VideoCard />
     </div>
   );
 }
