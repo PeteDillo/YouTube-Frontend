@@ -2,29 +2,26 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const SearchBar = (props) => {
-
+  const { setSearchResults } = props
   //TODO: for some reason this is not working so the API key is hardcoded at the moment
-  let API_KEY = process.env.REACT_APP_API_KEY;
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
 
   function handleSubmit(event) {
     event.preventDefault();
-
     const getSearchResults = async () => {
       try {
-        let response = await axios.get("https://www.googleapis.com/youtube/v3/search?key=" + 'AIzaSyDSS7SBVIkPSnJWPfavL-ZNHmytn-iFV38' + "&type=video&part=snippet&maxResults=10&q=" + searchTerm,)
-        
-        let videos = response.data;
-        setSearchResults(videos);
-        
-        // props.searchBar(videos)
-        console.log(searchResults)
+        let response = await axios.get(
+          "https://www.googleapis.com/youtube/v3/search?key=" +
+            'AIzaSyDvQsvH6JjEOuSjtAvP2TdLt1DW4y4uBIU' +
+            "&type=video&part=snippet&maxResults=10&q=" +
+            searchTerm
+        );
+        setSearchResults(response.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
+    };
     getSearchResults();
     setSearchTerm("");
   }
