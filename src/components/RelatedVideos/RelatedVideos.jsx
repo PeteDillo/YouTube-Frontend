@@ -10,7 +10,7 @@ const RelatedVideos = (video) => {
         try {
           let response = await axios.get(
             //doesnt work yet
-            "https://www.googleapis.com/youtube/v3/youtube.search.list?part=snippet&type=video&relatedToVideoId=" + videoId
+            "https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=" + videoId + "&type=video&key=" + 'AIzaSyDvQsvH6JjEOuSjtAvP2TdLt1DW4y4uBIU'
           );
 
           setRelatedVideos(response.data);
