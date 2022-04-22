@@ -3,6 +3,7 @@ import axios from "axios";
 
 const CreateComment = (video) => {
 
+    // const [videoId, setVideoId] = useState(video.video.id.videoId);
     const [name, setName] = useState();
     const [body, setBody] = useState();
 
@@ -12,10 +13,10 @@ const CreateComment = (video) => {
 
     function handleSubmit(event){
         event.preventDefault();
-
         try {
             axios.post("http://localhost:3007/api/comments/",
                 {
+                    "videoId": video.video.id,
                     "name": name,
                     "body": body,
                     "like": false,

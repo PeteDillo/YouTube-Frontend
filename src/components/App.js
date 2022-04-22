@@ -5,9 +5,9 @@ import SearchBar from "./SearchBar/SearchBar.js";
 import VideoPlayer from "./VideoPlayer/VideoPlayer";
 import VideoCard from "./VideoCard/VideoCard";
 import CreateComment from "./Comments/CreateComment";
+import DisplayComments from "./Comments/DisplayComments";
 
 function App() {
-  const [comments, setComments] = useState([]);
   const [video, setVideo] = useState({
     kind: "youtube#searchResult",
     etag: "3bXDXEjoIvuHqNW3chKdMnBMBM0",
@@ -44,14 +44,16 @@ function App() {
       publishTime: "2020-10-29T12:00:27Z",
     },
   });
+  const [comments, setComments] = useState([]);
+
   const [videoList, setVideoList] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
 
   video.id = "NQR_cPgk1Hw";
 
-  const getComments = async () => {
+  const getComments = async (video) => {
     try {
-      let response = await axios.get("http://localhost:3007/api/comments" + video.id.videoId);
+      let response = await axios.get("http://localhost:3007/api/comments/:commentId/" + video.id.videoId);
       setComments(response.data);
     } catch (error) {
       console.log(error);
@@ -67,7 +69,8 @@ function App() {
     <div className="App">
       <SearchBar setSearchResults={setSearchResults} />
       <VideoPlayer video={video} />
-      <CreateComment createComment = {addNewComment}/>
+      <CreateComment createComment = {addNewComment} video = {video}/>
+      <DisplayComments displayComments = {comments}/>
     </div>
   );
 }
