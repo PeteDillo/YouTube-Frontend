@@ -4,9 +4,10 @@ import axios from "axios";
 import SearchBar from "./SearchBar/SearchBar.js";
 import VideoPlayer from "./VideoPlayer/VideoPlayer";
 import VideoCard from "./VideoCard/VideoCard";
+import CreateComment from "./Comments/CreateComment";
 
 function App() {
-  const [Comments, setComments] = useState([]);
+  const [comments, setComments] = useState([]);
   const [video, setVideo] = useState({
     kind: "youtube#searchResult",
     etag: "3bXDXEjoIvuHqNW3chKdMnBMBM0",
@@ -50,18 +51,23 @@ function App() {
 
   const getComments = async () => {
     try {
-      let response = await axios.get("http://localhost:3007/api/comments");
+      let response = await axios.get("http://localhost:3007/api/comments" + video.id.videoId);
       setComments(response.data);
     } catch (error) {
       console.log(error);
     }
   };
 
+  function addNewComment(entry){
+    let tempComments = [...comments, entry]
+    setComments(tempComments)
+  }
+
   return (
     <div className="App">
       <SearchBar setSearchResults={setSearchResults} />
       <VideoPlayer video={video} />
-      <VideoCard />
+      <CreateComment createComment = {addNewComment}/>
     </div>
   );
 }
