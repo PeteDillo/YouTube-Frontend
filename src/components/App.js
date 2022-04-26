@@ -12,46 +12,46 @@ function App(){
   // const [videos, setVideos] = useState([])
 
   const [videos, setVideos] = useState([
-        {
-            kind: "youtube#searchResult",
-            etag: "fEYjMFLtrwIpn0Zsa2TE56rZ76Y",
-            id: {
-                kind: "youtube#video",
-                videoId: "spxtEt6RaS4"
-            }
-        },
-        {
-            kind: "youtube#searchResult",
-            etag: "x-sw641ROIFMSZ3bKehh3zxbGbM",
-            id: {
-                kind: "youtube#video",
-                videoId: "riFyKUyGb4k"
-            }
-        },
-        {
-            kind: "youtube#searchResult",
-            etag: "5sFG1ojuNg6xhN1oe4Q4KUd4LVU",
-            id: {
-                kind: "youtube#video",
-                videoId: "7MP82T7IzkQ"
-            }
-        },
-        {
-            kind: "youtube#searchResult",
-            etag: "n7DbQviGJELlaIOrURZ4N8LjEU8",
-            id: {
-                kind: "youtube#video",
-                videoId: "S-xmQkhwzRk"
-            }
-        },
-        {
-            kind: "youtube#searchResult",
-            etag: "KIEPRkbcjrGaafSnfzFKShBo_q0",
-            id: {
-                kind: "youtube#video",
-                videoId: "5AO8qfcmMOw"
-            }
-        }
+        // {
+        //     kind: "youtube#searchResult",
+        //     etag: "fEYjMFLtrwIpn0Zsa2TE56rZ76Y",
+        //     id: {
+        //         kind: "youtube#video",
+        //         videoId: "spxtEt6RaS4"
+        //     }
+        // },
+        // {
+        //     kind: "youtube#searchResult",
+        //     etag: "x-sw641ROIFMSZ3bKehh3zxbGbM",
+        //     id: {
+        //         kind: "youtube#video",
+        //         videoId: "riFyKUyGb4k"
+        //     }
+        // },
+        // {
+        //     kind: "youtube#searchResult",
+        //     etag: "5sFG1ojuNg6xhN1oe4Q4KUd4LVU",
+        //     id: {
+        //         kind: "youtube#video",
+        //         videoId: "7MP82T7IzkQ"
+        //     }
+        // },
+        // {
+        //     kind: "youtube#searchResult",
+        //     etag: "n7DbQviGJELlaIOrURZ4N8LjEU8",
+        //     id: {
+        //         kind: "youtube#video",
+        //         videoId: "S-xmQkhwzRk"
+        //     }
+        // },
+        // {
+        //     kind: "youtube#searchResult",
+        //     etag: "KIEPRkbcjrGaafSnfzFKShBo_q0",
+        //     id: {
+        //         kind: "youtube#video",
+        //         videoId: "5AO8qfcmMOw"
+        //     }
+        // }
   ]);
   // const [selectedVideo, setSelectedVideo] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState({
@@ -120,6 +120,7 @@ function App(){
       console.log(error);
     }
   };
+
   getComments(selectedVideo);
  
   function addNewComment(entry){
