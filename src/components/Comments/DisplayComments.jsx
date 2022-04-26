@@ -5,8 +5,8 @@ const DisplayComments = (comments) => {
                 return (
                     <div className="card-body">
                         <h5 className="card-title">{entry.name}</h5>
-                        <p className="card-date">{entry.date}</p>
-                        <p className="card-text">{entry.post}</p>
+                        <p className="card-date">{entry.dateAdded}</p>
+                        <p className="card-text">{entry.body}</p>
                     </div>
                 );
             })}
