@@ -121,7 +121,7 @@ function App(){
     }
   };
   getComments(selectedVideo);
-
+ 
   function addNewComment(entry){
     let tempComments = [...comments, entry]
     setComments(tempComments)
@@ -131,7 +131,7 @@ function App(){
     <div className="App">
       <SearchBar parentHandleSubmit={handleSubmit} />
       <VideoPlayer video={selectedVideo} />
-      {/* <VideoList handleVideoSelect={handleVideoSelect} videos={videos}/> */}
+      <VideoList handleVideoSelect={handleVideoSelect} videos={videos}/>
       <CreateComment createComment = {addNewComment} video = {selectedVideo}/>
       <DisplayComments displayComments = {comments}/>
     </div>
