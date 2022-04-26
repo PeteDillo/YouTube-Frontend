@@ -1,5 +1,9 @@
 const VideoPlayer = (video) => {
-    
+  if (!video)  {
+    return <div>
+      <p>search for video</p>
+    </div>
+  }
   return (
     <div>
       <div className="videoplayer">Video</div>

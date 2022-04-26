@@ -7,44 +7,6 @@ import VideoCard from "./VideoCard/VideoCard";
 import CreateComment from "./Comments/CreateComment";
 import DisplayComments from "./Comments/DisplayComments";
 
-// function App() {
-  // const [selectedVideo, setSelectedVideo] = useState({
-  //   kind: "youtube#searchResult",
-  //   etag: "3bXDXEjoIvuHqNW3chKdMnBMBM0",
-  //   id: {
-  //     kind: "youtube#video",
-  //     videoId: "eX2qFMC8cFo",
-  //   },
-  //   snippet: {
-  //     publishedAt: "2020-10-29T12:00:27Z",
-  //     channelId: "UCYPrd7A27nLhQONcCIfFTaA",
-  //     title:
-  //       "Funniest Cats 😹 - Don&#39;t try to hold back Laughter 😂 - Funny Cats Life",
-  //     description:
-  //       "Funniest Cats - Don't try to hold back Laughter Watch more cute animals! https://youtube.com/playlist?list=PLH.",
-  //     thumbnails: {
-  //       default: {
-  //         url: "https://i.ytimg.com/vi/eX2qFMC8cFo/default.jpg",
-  //         width: 120,
-  //         height: 90,
-  //       },
-  //       medium: {
-  //         url: "https://i.ytimg.com/vi/eX2qFMC8cFo/mqdefault.jpg",
-  //         width: 320,
-  //         height: 180,
-  //       },
-  //       high: {
-  //         url: "https://i.ytimg.com/vi/eX2qFMC8cFo/hqdefault.jpg",
-  //         width: 480,
-  //         height: 360,
-  //       },
-  //     },
-  //     channelTitle: "Funny Cats Life",
-  //     liveBroadcastContent: "none",
-  //     publishTime: "2020-10-29T12:00:27Z",
-  //   },
-  // });
-
 function App(){
   const [videos, setVideos] = useState([]);
   // const [selectedVideo, setSelectedVideo] = useState(null);
@@ -123,7 +85,7 @@ function App(){
 
   return (
     <div className="App">
-      <SearchBar setSearchResults={handleSubmit} />
+      <SearchBar parentHandleSubmit={handleSubmit} />
       <VideoPlayer video={selectedVideo} />
       <CreateComment createComment = {addNewComment} video = {selectedVideo}/>
       <DisplayComments displayComments = {comments}/>

@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const SearchBar = (props) => {
-  const { setSearchResults } = props
+  // const { setSearchResults } = props
   const [searchTerm, setSearchTerm] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
     
-    props.setSearchResults.setSearchTerm(event.target.value)
+    props.parentHandleSubmit(searchTerm)
 
     setSearchTerm("");
   }
