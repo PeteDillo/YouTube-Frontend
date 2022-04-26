@@ -1,11 +1,19 @@
-const VideoCard = (video) => {
-  return (
-    <div className="Video">
-      <div className="thumbnail"></div>
-      <div className="title"></div>
-      <div className="time"></div>
-    </div>
-  );
-};
+import React from "react";
+import { Card } from 'react-bootstrap';
+import './relatedVideos.css'
 
-export default VideoCard;
+const RelatedVideos = (props) => {
+  const {setSelectedVideo, video} = props
+    return (
+        <div className="thumbnails">
+            <Card style={{ width: '18rem' }} onClick={() => setSelectedVideo(video)} >
+                <img id='img' 
+                alt = 'thumbnail'
+                src = {video.snippet.thumbnails.medium.url}/>
+                <h4>{video.snippet.title}</h4>
+            </Card>
+        </div>
+    )
+}
+
+export default RelatedVideos;
