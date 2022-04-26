@@ -1,9 +1,9 @@
-const VideoCard = (video) => {
+const VideoCard = (video, handleVideoSelect) => {
   return (
-    <div className="Video">
-      <div className="thumbnail"></div>
-      <div className="title"></div>
-      <div className="time"></div>
+    <div className="Video" onClick={handleVideoSelect(video)}>
+      <img className="thumbnail" src={video.snippet.thumbnails.medium.url}/>
+      <div className="title">{video.snippet.title}</div>
+      {/* <div className="time">{video.snippet.}</div> */}
     </div>
   );
 };
