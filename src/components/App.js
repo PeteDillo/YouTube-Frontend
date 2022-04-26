@@ -112,7 +112,6 @@ function App(){
 
 
   const [comments, setComments] = useState([]);
-
   const getComments = async (video) => {
     try {
       let response = await axios.get("http://localhost:3007/api/comments/:commentId/" + video.id.videoId);
@@ -121,7 +120,8 @@ function App(){
       console.log(error);
     }
   };
-  
+  getComments(selectedVideo);
+
   function addNewComment(entry){
     let tempComments = [...comments, entry]
     setComments(tempComments)
@@ -131,7 +131,7 @@ function App(){
     <div className="App">
       <SearchBar parentHandleSubmit={handleSubmit} />
       <VideoPlayer video={selectedVideo} />
-      <VideoList handleVideoSelect={handleVideoSelect} videos={videos}/>
+      {/* <VideoList handleVideoSelect={handleVideoSelect} videos={videos}/> */}
       <CreateComment createComment = {addNewComment} video = {selectedVideo}/>
       <DisplayComments displayComments = {comments}/>
     </div>
